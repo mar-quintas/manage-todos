@@ -9,5 +9,5 @@ export class Todo {
   title: string;
 
   @Column()
-  isChecked: boolean;
+  Checked: boolean;
 }
