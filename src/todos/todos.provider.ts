@@ -4,7 +4,7 @@ import { Todo } from './entities/todo.entity';
 export const todoProviders = [
   {
     provide: 'TODO_REPOSITORY',
-    useFactory: (connection: Connection) => connection.getRepository(Todo ),
+    useFactory: (connection: Connection) => connection.getRepository(Todo),
     inject: ['DATABASE_CONNECTION'],
   },
 ];
