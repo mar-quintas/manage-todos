@@ -5,7 +5,7 @@ export const databaseProviders = [
     provide: 'DATABASE_CONNECTION',
     useFactory: async () => await createConnection({
       type: 'sqlite',
-      database: './database/todos.db',
+      database: './src/database/todos.db',
       entities: [
         Todo,
       ],
