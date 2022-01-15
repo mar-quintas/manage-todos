@@ -20,9 +20,6 @@ function ToAdd (props) {
     axios({
       method: "POST",
       url:"/api/v1.0/todos",
-      headers: {
-        Authorization: 'Bearer ' + props.token
-      },
       data:{
         title: addTaskForm.title,
       }

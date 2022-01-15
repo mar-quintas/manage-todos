@@ -1,19 +1,15 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import axios from "axios";
-import useToken from './useToken'
 
 
 function useTodosData (props) {
-    const { token, removeToken, setToken } = useToken();
     const [todosData, setTodosData] = useState([]);
 
   function getData () {
     axios({
       method: "GET",
-      url: "/api/v1.0/todos",
-      headers: {
-        Authorization: 'Bearer ' + token}
+      url: "/todos",
     })
     .then((response) => {
       const res = response.data
@@ -31,8 +27,6 @@ function useTodosData (props) {
       axios({
         method: "DELETE",
         url:"/api/v1.0/todo/" + id,
-        headers: {
-          Authorization: 'Bearer ' + token},
       })
       .then((response) => {
         getData()
@@ -50,8 +44,6 @@ function useTodosData (props) {
       axios({
         method: "PUT",
         url:"/api/v1.0/todo/" + id,
-        headers: {
-          Authorization: 'Bearer ' + token},
         data: {
           title: title,
           ready: ready,
@@ -72,8 +64,6 @@ function useTodosData (props) {
       axios({
         method: "PUT",
         url:"/api/v1.0/todo/" + id,
-        headers: {
-          Authorization: 'Bearer ' + token},
         data: {
           title: title,
           ready: ready,
