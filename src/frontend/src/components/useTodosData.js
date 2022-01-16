@@ -26,7 +26,7 @@ function useTodosData (props) {
   function deleteData(id) {
       axios({
         method: "DELETE",
-        url:"/api/v1.0/todo/" + id,
+        url:"/todos/" + id,
       })
       .then((response) => {
         getData()
@@ -43,7 +43,7 @@ function useTodosData (props) {
       if (ready){ready=false} else {ready=true}
       axios({
         method: "PUT",
-        url:"/api/v1.0/todo/" + id,
+        url:"/todos/" + id,
         data: {
           title: title,
           ready: ready,
@@ -63,7 +63,7 @@ function useTodosData (props) {
   function editTitle(id, title, ready){
       axios({
         method: "PUT",
-        url:"/api/v1.0/todo/" + id,
+        url:"/todos/" + id,
         data: {
           title: title,
           ready: ready,

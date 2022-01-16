@@ -11,7 +11,12 @@ export class TodosService {
     private todoRepository: Repository<Todo>,
   ) {}
 
-  create(createTodoDto: CreateTodoDto) {
+  create(createTodoDto: CreateTodoDto){
+    const todo = this.todoRepository.create({
+      title: createTodoDto.title,
+      checked: createTodoDto.checked,
+      })
+      console.log(todo)
     return 'This action adds a new todo';
   }
 
@@ -19,15 +24,16 @@ export class TodosService {
     return this.todoRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} todo`;
-  }
-
-  update(id: number, updateTodoDto: UpdateTodoDto) {
+  async update(id: number, updateTodoDto: UpdateTodoDto) {
     return `This action updates a #${id} todo`;
+
+//     await repository.update(1, { firstName: "Rizzrak" });
+// executes UPDATE user SET firstName = Rizzrak WHERE id = 1
   }
 
-  remove(id: number) {
+  async remove(id: number) {
+        // await repository.delete(1);
     return `This action removes a #${id} todo`;
+
   }
 }

@@ -12,16 +12,15 @@ function ToAdd (props) {
 
   const [addTaskForm, setaddTaskForm] = useState({
     title:"",
-    ready:"",
-    folder_id:"",
   })
 
   function AddTask(event){
     axios({
       method: "POST",
-      url:"/api/v1.0/todos",
+      url:"/todos",
       data:{
         title: addTaskForm.title,
+        checked: false,
       }
     })
     .then((response) => {
@@ -36,8 +35,7 @@ function ToAdd (props) {
 
     setaddTaskForm(({
       title:"",
-      ready:"",
-      folder_id:""}))
+    }))
 
     event.preventDefault()
 

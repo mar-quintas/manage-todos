@@ -17,11 +17,6 @@ export class TodosController {
     return this.todosService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.todosService.findOne(+id);
-  }
-
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTodoDto: UpdateTodoDto) {
     return this.todosService.update(+id, updateTodoDto);
