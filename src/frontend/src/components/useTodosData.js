@@ -42,11 +42,11 @@ function useTodosData (props) {
   function editData(id, title, ready){
       if (ready){ready=false} else {ready=true}
       axios({
-        method: "PUT",
+        method: "PATCH",
         url:"/todos/" + id,
         data: {
           title: title,
-          ready: ready,
+          checked: ready,
         }
       })
       .then((response) => {
@@ -62,11 +62,11 @@ function useTodosData (props) {
 
   function editTitle(id, title, ready){
       axios({
-        method: "PUT",
+        method: "PATCH",
         url:"/todos/" + id,
         data: {
           title: title,
-          ready: ready,
+          checked: ready,
         }
       })
       .then((response) => {

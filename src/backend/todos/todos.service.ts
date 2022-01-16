@@ -16,24 +16,21 @@ export class TodosService {
       title: createTodoDto.title,
       checked: createTodoDto.checked,
       })
-      console.log(todo)
-    return 'This action adds a new todo';
+      this.todoRepository.save(todo)
+    return "hello";
   }
 
   async findAll(): Promise<Todo[]> {
     return this.todoRepository.find();
   }
 
-  async update(id: number, updateTodoDto: UpdateTodoDto) {
-    return `This action updates a #${id} todo`;
-
-//     await repository.update(1, { firstName: "Rizzrak" });
-// executes UPDATE user SET firstName = Rizzrak WHERE id = 1
+  update(id: number, updateTodoDto: UpdateTodoDto) {
+    this.todoRepository.update(id, { title: updateTodoDto.title, checked: updateTodoDto.checked });
+    return "hello";
   }
 
-  async remove(id: number) {
-        // await repository.delete(1);
-    return `This action removes a #${id} todo`;
-
+  remove(id: number) {
+    this.todoRepository.delete(id);
+    return "hello";
   }
 }
